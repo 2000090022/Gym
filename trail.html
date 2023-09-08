@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <title>Ready?</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        perspective: 1000px;
+        background-color: #000000;
+      }
+
+      #container {
+        width: 200%;
+        height: 100vh;
+        display: flex;
+        transition: transform 0.5s;
+      }
+
+      .page {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform-origin: 0 50%;
+        transform: rotateY(0deg);
+        position: relative; /* Required for text overlay */
+      }
+
+      #workouts {
+        background-color: #000000;
+        transform: rotateY(-90deg);
+      }
+
+      .image-container {
+        width: 100%;
+        height: 100%;
+        background-color:rgb(110, 110, 110) ;
+        /* background:  url("images/gym/ape1.jpg") center/cover no-repeat; Replace 'your-image.jpg' with your image path */ */
+        /* position: relative; */}
+      
+
+      .text-overlay {
+        position: absolute;
+        top: 94%;
+        left: 52%;
+        right: -50%;
+        bottom: -15%;
+
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0); /* Transparent background */
+        padding: 10px;
+        border-radius: 100px;
+        color: rgb(255, 255, 255);
+        font-size: 40px;
+        font-family: "Times New Roman", Times, sans-serif; /* Change to your preferred font */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="home" class="page">
+        <div class="image-container">
+          <div class="text-overlay">
+            <marquee direction="right" scrollamount="20">
+              <a  class="button style 1 unselectable" id="new" > Hi Swipe right 🤸🏼‍♂️</a>
+          </div>
+        </div>
+      </div>
+      <div id="workout" class="">
+        <!--  -->
+      </div>
+    </div>
+
+    <script>
+      let startX = 0;
+      let endX = 0;
+
+      // Add a swipe event listener to the body
+      document.body.addEventListener("touchstart", function (e) {
+        startX = e.touches[0].pageX;
+      });
+
+      document.body.addEventListener("touchend", function (e) {
+        endX = e.changedTouches[0].pageX;
+
+        // Define a threshold for the swipe gesture
+        const swipeThreshold = 100;
+
+        // Calculate the difference in X coordinates
+        const deltaX = endX - startX;
+
+        // If the swipe is to the right and larger than the threshold, trigger the 3D effect and navigate to a page
+        if (deltaX > swipeThreshold) {
+          document.getElementById("container").style.transform =
+            "translateX(-50%) rotateY(90deg)";
+
+          // Redirect to the desired page after the animation (adjust the timeout duration as needed)
+          setTimeout(function () {
+            window.location.href = "Chest.html"; // Replace with the actual URL of your workouts page
+          }, 500); // Adjust the duration of the animation and timeout as needed
+        }
+      });
+    </script>
+  </body>
+</html>

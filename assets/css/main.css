@@ -69,6 +69,14 @@ footer, header, hgroup, menu, nav, section {
 	filter: blur(2px) grayscale();
   }
 
+  
+  .useful:hover{
+	transition: transform 1.5s ease-in-out;
+	transform: scale(1.2);
+	
+  }
+  
+
 
   /* audio */
 /* Style the container */
@@ -188,6 +196,7 @@ input, select, textarea {
 
 		a:hover {
 			text-decoration: none;
+			
 		}
 
 	strong, b {
@@ -1714,7 +1723,7 @@ input, select, textarea {
 	}
 
 		input[type="button"]:hover,
-		input[type="submit"]:hover,
+		input[type="submit"]:hover,5
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
@@ -2278,6 +2287,7 @@ input, select, textarea {
 				color: #fff;
 			}
 
+			
 /* Intro */
 
 	#intro {
@@ -2303,10 +2313,15 @@ input, select, textarea {
 			margin-bottom: 1em;
 		}
 
-			#intro p.style2 a {
-				color: inherit;
+			#intro p.style2 span:hover {
+				color: #00f819;
+
+			}
+			#intro p.style2 a:not(:hover){
+				color: #aeaeae;
 				text-decoration: none;
 			}
+			
 
 		#intro p.style3 {
 			font-size: 1.1em;
@@ -2741,7 +2756,7 @@ input, select, textarea {
 				top: 0;
 				width: 275px;
 				z-index: 10002;
-				background: #242730 url("images/overlay.png");
+				background: #000000 url("images/overlay.png");
 				box-shadow: inset -3px 0px 4px 0px rgba(0, 0, 0, 0.1);
 			}
 

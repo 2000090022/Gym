@@ -116,6 +116,7 @@
 		}
 
 		button.addEventListener("click", function () {
+			console.log("Button clicked");
 			button.textContent = "Yeahh buddy light weight";
 			navigator.vibrate(50);
 			button.style.backgroundColor = "#00f819";
@@ -128,16 +129,35 @@
 	// Call the function for each button
 
 	handleButton("pushups")
-	handleButton("dips")
 	handleButton("bench")
-	handleButton("incline");
-	handleButton("chestfly");
-	handleButton("decfly");
+
+
+	handleButton("cablec");
+	handleButton("midc");
+
 	handleButton("dbpress");
 	handleButton("incpress");
 	handleButton("butterfly");
-	handleButton("");
-	handleButton("");
+
+	handleButton("onearmt");
+	handleButton("tez");
+	handleButton("rope");
+	handleButton("lean");
+	handleButton("onearmc");
+
+	handleButton("dips");
+	// handleButton("chestfly");
+	// handleButton("decfly");
+
+
+
+	// handleButton("decfly");
+
+
+
+
+
+
 
 
 	// Add more buttons as needed

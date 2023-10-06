@@ -1,7 +1,5 @@
 /*
-	Escape Velocity by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Main JS
 */
 
 (function ($) {
@@ -99,7 +97,6 @@
 
 	// });
 
-	// Function to handle a button
 	function handleButton(buttonId) {
 		const button = document.getElementById(buttonId);
 		const storedText = sessionStorage.getItem(`${buttonId}-text`);
@@ -123,8 +120,42 @@
 			button.classList.add("unselectable");
 			sessionStorage.setItem(`${buttonId}-text`, button.textContent);
 			sessionStorage.setItem(`${buttonId}-color`, button.style.backgroundColor);
+
+			// Add a 1-second delay before starting the 2-minute timer
+			setTimeout(() => {
+				// Change the button text to indicate the timer is running
+				button.textContent = "2:00"; // Initial time display
+
+				button.style.backgroundColor = "#000000";
+				const startTime = Date.now();
+				const timerInterval = setInterval(() => {
+					const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
+					const remainingSeconds = 120 - elapsedSeconds;
+
+
+
+					if (remainingSeconds <= 0) {
+						button.style.backgroundColor = "#013220";
+						clearInterval(timerInterval);
+						button.textContent = "Cool..!";
+						navigator.vibrate(200);
+					} else {
+						const minutes = Math.floor(remainingSeconds / 60);
+						const seconds = remainingSeconds % 60;
+						button.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+					}
+				}, 1000); // Update the timer every second
+			}, 1000); // Wait 1 second before starting the timer
 		});
 	}
+
+
+
+
+
+
+
+
 
 	// Call the function for each button
 
